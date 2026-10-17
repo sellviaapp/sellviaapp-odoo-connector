@@ -12,8 +12,8 @@ Connect one Odoo database to a tailored SellViaApp mobile app for iOS and Androi
 
 The connector opens two complementary channels from the same Odoo data:
 
-1. **Mobile catalogue and ordering** — products, categories, stock and customer access become available in the SellViaApp experience for iOS and Android.
-2. **Authenticated business API** — the SellViaApp account also exposes structured resources for catalogue, FAM1/FAM2 categories, customers, carts, orders, fulfilment, payments, integrations and webhooks.
+1. **Mobile catalogue and ordering** - products, categories, stock and customer access become available in the SellViaApp experience for iOS and Android.
+2. **Authenticated business API** - the SellViaApp account also exposes structured resources for catalogue, FAM1/FAM2 categories, customers, carts, orders, fulfilment, payments, integrations and webhooks.
 
 This is therefore more than a mobile front end. It is a controlled exchange layer that lets Odoo participate in a broader API ecosystem.
 
@@ -57,7 +57,7 @@ flowchart LR
   S --> A[Authenticated API\nProducts · FAM1/FAM2 · Customers · Orders · Webhooks]
 ```
 
-## Install in 5–10 minutes
+## Install in 5-10 minutes
 
 1. Download the release ZIP or clone this repository.
 2. Copy `sellviaapp_connector` into an Odoo custom add-ons directory.
