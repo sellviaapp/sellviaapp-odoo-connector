@@ -4,7 +4,7 @@
 [![License: LGPL-3.0](https://img.shields.io/badge/License-LGPL--3.0-blue.svg)](LICENSE)
 [![Validation](https://github.com/sellviaapp/sellviaapp-odoo-connector/actions/workflows/validate.yml/badge.svg)](https://github.com/sellviaapp/sellviaapp-odoo-connector/actions/workflows/validate.yml)
 
-Connect one Odoo database to one SellViaApp space. Keep Odoo as the source of truth for catalogue and stock, invite customers to the mobile experience, and retrieve confirmed mobile orders as Odoo quotations.
+Connect one Odoo database to a tailored SellViaApp mobile app for iOS and Android and to a complete authenticated API. Keep Odoo as the source of truth for catalogue and stock, invite customers to the mobile experience, and retrieve confirmed mobile orders as Odoo quotations.
 
 ![Odoo to SellViaApp mobile and API workflow](sellviaapp_connector/static/description/images/main_screenshot.png)
 

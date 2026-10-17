@@ -1,6 +1,6 @@
 {
     "name": "SellViaApp Connector",
-    "summary": "Synchronise Odoo products, stock, customers and mobile orders",
+    "summary": "Connect Odoo to a tailored mobile app and complete API",
     "version": "17.0.1.10.0",
     "category": "Sales/Point of Sale",
     "author": "SellViaApp",
