@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="sellviaapp_connector.PartnerList.Buttons"
+       t-inherit="web.ListView.Buttons"
+       t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
+            <button type="button"
+                    class="btn btn-primary o_sellviaapp_sync_all_contacts"
+                    title="Send only new or changed contacts to SellViaApp"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncAllSellViaAppContacts">
+                <i class="fa fa-cloud-upload me-1"/>
+                Synchronise contacts
+            </button>
+            <button t-if="nbSelected"
+                    type="button"
+                    class="btn btn-secondary o_sellviaapp_sync_selected_contacts"
+                    title="Update only the selected contacts in SellViaApp"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncSelectedSellViaAppContacts">
+                <i class="fa fa-refresh me-1"/>
+                Update selection
+            </button>
+        </xpath>
+    </t>
+</templates>

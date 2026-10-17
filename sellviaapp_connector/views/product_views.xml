@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Database-backed asset declarations are intentionally kept in this
+         already-loaded data file. They allow an installed Odoo service to
+         activate the product toolbar without requiring a Windows restart. -->
+    <record id="asset_product_list_controller" model="ir.asset">
+        <field name="name">SellViaApp product list controller</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="directive">append</field>
+        <field name="path">sellviaapp_connector/static/src/js/product_list_controller.js</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <record id="asset_product_list_buttons" model="ir.asset">
+        <field name="name">SellViaApp product list buttons</field>
+        <field name="bundle">web.assets_backend</field>
+        <field name="directive">append</field>
+        <field name="path">sellviaapp_connector/static/src/xml/product_list_buttons.xml</field>
+        <field name="sequence">90</field>
+    </record>
+
+    <!-- A list is the safest default for large catalogues and keeps the global
+         SellViaApp action visible without removing the optional kanban view. -->
+    <record id="sale.product_template_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,kanban,form,activity</field>
+    </record>
+
+    <record id="view_product_template_tree_sellviaapp" model="ir.ui.view">
+        <field name="name">product.template.tree.sellviaapp</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">sellviaapp_product_list</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="sellviaapp_sync_state" widget="badge" optional="show"/>
+                <field name="sellviaapp_last_synced_at" optional="hide"/>
+                <field name="sellviaapp_stock_synced_at" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_product_template_form_sellviaapp" model="ir.ui.view">
+        <field name="name">product.template.form.sellviaapp</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_sellviaapp_sync_selected_inventory"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-cubes"
+                        invisible="not sale_ok or not active"
+                        groups="sales_team.group_sale_manager">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Update</span>
+                        <span class="o_stat_text">stock</span>
+                    </div>
+                </button>
+                <button name="action_sellviaapp_sync_selected_products"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-cloud-upload"
+                        invisible="not sale_ok or not active"
+                        groups="sales_team.group_sale_manager">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Update</span>
+                        <span class="o_stat_text">SellViaApp</span>
+                    </div>
+                </button>
+            </xpath>
+            <xpath expr="//page[@name='general_information']" position="inside">
+                <group string="SellViaApp" groups="sales_team.group_sale_manager">
+                    <field name="sellviaapp_sync_state" widget="badge" readonly="1"/>
+                    <field name="sellviaapp_last_synced_at" readonly="1"/>
+                    <field name="sellviaapp_stock_synced_at" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_product_product_tree_sellviaapp" model="ir.ui.view">
+        <field name="name">product.product.tree.sellviaapp</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">sellviaapp_product_list</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="sellviaapp_sync_state" widget="badge" optional="show"/>
+                <field name="sellviaapp_last_synced_at" optional="hide"/>
+                <field name="sellviaapp_stock_synced_at" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_product_product_form_sellviaapp" model="ir.ui.view">
+        <field name="name">product.product.form.sellviaapp</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_sellviaapp_sync_selected_inventory"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-cubes"
+                        invisible="not sale_ok or not active"
+                        groups="sales_team.group_sale_manager">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Update</span>
+                        <span class="o_stat_text">stock</span>
+                    </div>
+                </button>
+                <button name="action_sellviaapp_sync_selected_products"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-cloud-upload"
+                        invisible="not sale_ok or not active"
+                        groups="sales_team.group_sale_manager">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Update</span>
+                        <span class="o_stat_text">SellViaApp</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

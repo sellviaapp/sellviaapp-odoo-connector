@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_tree_sellviaapp" model="ir.ui.view">
+        <field name="name">sale.order.tree.sellviaapp</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/header" position="inside">
+                <button name="action_sellviaapp_fetch_orders"
+                        type="object"
+                        string="Retrieve SellViaApp orders"
+                        class="btn-primary"
+                        display="always"
+                        groups="sales_team.group_sale_manager"/>
+            </xpath>
+            <xpath expr="//field[@name='client_order_ref']" position="after">
+                <field name="sellviaapp_number" string="SellViaApp no." optional="hide"/>
+                <field name="sellviaapp_delivery_mode" string="SellViaApp delivery" optional="hide"/>
+                <field name="sellviaapp_payment_status" string="SellViaApp payment" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_form_sellviaapp" model="ir.ui.view">
+        <field name="name">sale.order.form.sellviaapp</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="SellViaApp" invisible="not sellviaapp_order_guid">
+                    <group>
+                        <group>
+                            <field name="sellviaapp_order_guid"/>
+                            <field name="sellviaapp_order_id"/>
+                            <field name="sellviaapp_number"/>
+                            <field name="sellviaapp_status"/>
+                        </group>
+                        <group>
+                            <field name="sellviaapp_delivery_mode"/>
+                            <field name="sellviaapp_pickup_point"/>
+                            <field name="sellviaapp_payment_method"/>
+                            <field name="sellviaapp_payment_status"/>
+                            <field name="sellviaapp_payment_reference"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

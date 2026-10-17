@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116" height="40" viewBox="0 0 116 40" role="img" aria-labelledby="title">
+  <title id="title">Odoo</title>
+  <rect width="116" height="40" rx="9" fill="#ffffff"/>
+  <circle cx="19" cy="20" r="11" fill="#a45994"/>
+  <g fill="#8f8f8f"><circle cx="43" cy="20" r="11"/><circle cx="67" cy="20" r="11"/><circle cx="91" cy="20" r="11"/></g>
+  <g fill="#ffffff"><circle cx="19" cy="20" r="5.3"/><circle cx="43" cy="20" r="5.3"/><circle cx="67" cy="20" r="5.3"/><circle cx="91" cy="20" r="5.3"/></g>
+  <path d="M52 4v27" stroke="#8f8f8f" stroke-width="4" stroke-linecap="round"/>
+</svg>

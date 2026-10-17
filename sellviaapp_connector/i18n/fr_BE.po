@@ -1,0 +1,475 @@
+# Translation of Odoo Server.
+# This file contains the Belgian French translation of SellViaApp Connector.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Language: fr_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: sellviaapp_connector
+msgid "Not connected"
+msgstr "Non connecté"
+#. module: sellviaapp_connector
+msgid "Waiting for approval"
+msgstr "En attente d’autorisation"
+#. module: sellviaapp_connector
+msgid "Connected"
+msgstr "Connecté"
+#. module: sellviaapp_connector
+msgid "Attention required"
+msgstr "Intervention nécessaire"
+#. module: sellviaapp_connector
+msgid "Connect SellViaApp"
+msgstr "Connecter SellViaApp"
+#. module: sellviaapp_connector
+msgid "Open approval page"
+msgstr "Ouvrir la page d’autorisation"
+#. module: sellviaapp_connector
+msgid "Complete connection"
+msgstr "Terminer la connexion"
+#. module: sellviaapp_connector
+msgid "Disconnect"
+msgstr "Déconnecter"
+#. module: sellviaapp_connector
+msgid "Setup progress"
+msgstr "Progression de la configuration"
+#. module: sellviaapp_connector
+msgid "Setup"
+msgstr "Configuration"
+#. module: sellviaapp_connector
+msgid "Ready"
+msgstr "Prêt"
+#. module: sellviaapp_connector
+msgid "Saleable products"
+msgstr "Produits vendables"
+#. module: sellviaapp_connector
+msgid "Linked customers"
+msgstr "Clients liés"
+#. module: sellviaapp_connector
+msgid "Imported orders"
+msgstr "Commandes importées"
+#. module: sellviaapp_connector
+msgid "Your everyday actions"
+msgstr "Vos actions courantes"
+#. module: sellviaapp_connector
+msgid "1. Catalogue and stock"
+msgstr "1. Catalogue et stock"
+#. module: sellviaapp_connector
+msgid "Synchronise catalogue now"
+msgstr "Synchroniser le catalogue"
+#. module: sellviaapp_connector
+msgid "Repeat automatically every 15 minutes"
+msgstr "Répéter automatiquement toutes les 15 minutes"
+#. module: sellviaapp_connector
+msgid "2. Customer access"
+msgstr "2. Accès des clients"
+#. module: sellviaapp_connector
+msgid "Eligible Odoo customers"
+msgstr "Clients Odoo admissibles"
+#. module: sellviaapp_connector
+msgid "Send Odoo customers"
+msgstr "Envoyer les clients Odoo"
+#. module: sellviaapp_connector
+msgid "Retrieve SellViaApp customers"
+msgstr "Récupérer les clients SellViaApp"
+#. module: sellviaapp_connector
+msgid "3. Mobile orders"
+msgstr "3. Commandes mobiles"
+#. module: sellviaapp_connector
+msgid "Retrieve SellViaApp orders"
+msgstr "Récupérer les commandes SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Synchronise SellViaApp products"
+msgstr "Synchroniser les produits SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Update selection in SellViaApp"
+msgstr "Mettre à jour la sélection dans SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Update"
+msgstr "Mettre à jour"
+
+#. module: sellviaapp_connector
+msgid "Not sent"
+msgstr "Non envoyé"
+
+#. module: sellviaapp_connector
+msgid "Up to date"
+msgstr "À jour"
+
+#. module: sellviaapp_connector
+msgid "Partially sent"
+msgstr "Partiellement envoyé"
+
+#. module: sellviaapp_connector
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: sellviaapp_connector
+msgid "Last SellViaApp update"
+msgstr "Dernière mise à jour SellViaApp"
+#. module: sellviaapp_connector
+msgid "Help and dashboard"
+msgstr "Aide et tableau de bord"
+#. module: sellviaapp_connector
+msgid "Open SellViaApp dashboard"
+msgstr "Ouvrir le tableau de bord SellViaApp"
+#. module: sellviaapp_connector
+msgid "Check connection"
+msgstr "Vérifier la connexion"
+#. module: sellviaapp_connector
+msgid "Activity details"
+msgstr "Détails de l’activité"
+#. module: sellviaapp_connector
+msgid "Technical summaries"
+msgstr "Résultats techniques"
+#. module: sellviaapp_connector
+msgid "Linked records"
+msgstr "Éléments liés"
+#. module: sellviaapp_connector
+msgid "Logs"
+msgstr "Journaux"
+#. module: sellviaapp_connector
+msgid "Advanced settings"
+msgstr "Paramètres avancés"
+#. module: sellviaapp_connector
+msgid "Connection"
+msgstr "Connexion"
+#. module: sellviaapp_connector
+msgid "SellViaApp account"
+msgstr "Compte SellViaApp"
+#. module: sellviaapp_connector
+msgid "Available stock"
+msgstr "Stock disponible"
+#. module: sellviaapp_connector
+msgid "On-hand stock"
+msgstr "Stock physique"
+#. module: sellviaapp_connector
+msgid "Products published to SellViaApp"
+msgstr "Produits publiés dans SellViaApp"
+#. module: sellviaapp_connector
+msgid "SellViaApp customers"
+msgstr "Clients SellViaApp"
+#. module: sellviaapp_connector
+msgid "SellViaApp orders"
+msgstr "Commandes SellViaApp"
+#. module: sellviaapp_connector
+msgid "Start here:"
+msgstr "Commencez ici :"
+#. module: sellviaapp_connector
+msgid "Connection & synchronisation"
+msgstr "Connexion et synchronisation"
+#. module: sellviaapp_connector
+msgid "SellViaApp customer synchronisation"
+msgstr "Synchronisation des clients SellViaApp"
+#. module: sellviaapp_connector
+msgid "SellViaApp customers retrieved"
+msgstr "Clients SellViaApp récupérés"
+#. module: sellviaapp_connector
+msgid "SellViaApp orders retrieved"
+msgstr "Commandes SellViaApp récupérées"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp authentication established"
+msgstr "Authentification SellViaApp établie"
+
+#. module: sellviaapp_connector
+msgid "The SellViaApp authorisation has expired. Reconnect this Odoo company."
+msgstr "L’autorisation SellViaApp a expiré. Reconnectez cette société Odoo."
+
+#. module: sellviaapp_connector
+msgid "Connect and authorise this Odoo company in SellViaApp before using this feature."
+msgstr "Connectez et autorisez cette société Odoo dans SellViaApp avant d’utiliser cette fonctionnalité."
+
+#. module: sellviaapp_connector
+msgid "<strong>Access locked.</strong> SellViaApp authentication is missing or expired. Disconnect this configuration, then connect and authorise it again before using catalogue, customer or order features."
+msgstr "<strong>Accès verrouillé.</strong> L’authentification SellViaApp est absente ou expirée. Déconnectez cette configuration, puis reconnectez-la et autorisez-la avant d’utiliser le catalogue, les clients ou les commandes."
+
+#. module: sellviaapp_connector
+msgid "Unique connection"
+msgstr "Connexion unique"
+
+#. module: sellviaapp_connector
+msgid "Manage the complete exchange between this Odoo database and SellViaApp from one clear workspace."
+msgstr "Gérez tous les échanges entre cette base Odoo et SellViaApp depuis un espace unique et clair."
+
+#. module: sellviaapp_connector
+msgid "Connection required"
+msgstr "Connexion requise"
+
+#. module: sellviaapp_connector
+msgid "Connect Odoo to SellViaApp"
+msgstr "Connecter Odoo à SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Authorise this installation once. Until the connection is established, catalogue, customer and mobile-order synchronisation stays securely locked."
+msgstr "Autorisez cette installation une seule fois. Tant que la connexion n’est pas établie, la synchronisation du catalogue, des clients et des commandes mobiles reste verrouillée."
+
+#. module: sellviaapp_connector
+msgid "Your SellViaApp password is never stored in Odoo."
+msgstr "Votre mot de passe SellViaApp n’est jamais enregistré dans Odoo."
+
+#. module: sellviaapp_connector
+msgid "Approval in progress"
+msgstr "Autorisation en cours"
+
+#. module: sellviaapp_connector
+msgid "Approve this Odoo installation"
+msgstr "Autoriser cette installation Odoo"
+
+#. module: sellviaapp_connector
+msgid "Check this code in the SellViaApp dashboard, approve the request, then complete the connection here."
+msgstr "Vérifiez ce code dans la Dashboard SellViaApp, autorisez la demande, puis terminez la connexion ici."
+
+#. module: sellviaapp_connector
+msgid "Access locked"
+msgstr "Accès verrouillé"
+
+#. module: sellviaapp_connector
+msgid "Connection active"
+msgstr "Connexion active"
+
+#. module: sellviaapp_connector
+msgid "Products, customers and mobile orders are ready to synchronise."
+msgstr "Les produits, les clients et les commandes mobiles sont prêts à être synchronisés."
+
+#. module: sellviaapp_connector
+msgid "Daily operations"
+msgstr "Opérations courantes"
+
+#. module: sellviaapp_connector
+msgid "What do you want to synchronise?"
+msgstr "Que souhaitez-vous synchroniser ?"
+
+#. module: sellviaapp_connector
+msgid "Each operation can be launched independently."
+msgstr "Chaque opération peut être lancée indépendamment."
+
+#. module: sellviaapp_connector
+msgid "1 · Catalogue"
+msgstr "1 · Catalogue"
+
+#. module: sellviaapp_connector
+msgid "Products and stock"
+msgstr "Produits et stock"
+
+#. module: sellviaapp_connector
+msgid "Last catalogue sync"
+msgstr "Dernière synchronisation du catalogue"
+
+#. module: sellviaapp_connector
+msgid "Automatic synchronisation"
+msgstr "Synchronisation automatique"
+
+#. module: sellviaapp_connector
+msgid "Repeat every 15 minutes"
+msgstr "Répéter toutes les 15 minutes"
+
+#. module: sellviaapp_connector
+msgid "Stock mode"
+msgstr "Mode de stock"
+
+#. module: sellviaapp_connector
+msgid "Choose the quantity published to SellViaApp"
+msgstr "Choisissez la quantité publiée dans SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Synchronise catalogue"
+msgstr "Synchroniser le catalogue"
+
+#. module: sellviaapp_connector
+msgid "2 · Customers"
+msgstr "2 · Clients"
+
+#. module: sellviaapp_connector
+msgid "Mobile customer access"
+msgstr "Accès mobile des clients"
+
+#. module: sellviaapp_connector
+msgid "Last customer exchange"
+msgstr "Dernier échange de clients"
+
+#. module: sellviaapp_connector
+msgid "3 · Orders"
+msgstr "3 · Commandes"
+
+#. module: sellviaapp_connector
+msgid "Last order import"
+msgstr "Dernier import de commandes"
+
+#. module: sellviaapp_connector
+msgid "Manage the mobile store or verify the connection."
+msgstr "Gérez la boutique mobile ou vérifiez la connexion."
+
+#. module: sellviaapp_connector
+msgid "Only one SellViaApp connection is allowed in this Odoo database."
+msgstr "Une seule connexion SellViaApp est autorisée dans cette base Odoo."
+
+#. module: sellviaapp_connector
+msgid "Synchronise SellViaApp"
+msgstr "Synchroniser avec SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Update selection"
+msgstr "Mettre à jour la sélection"
+
+#. module: sellviaapp_connector
+msgid "Send only new or changed products to SellViaApp"
+msgstr "Envoyer uniquement les produits nouveaux ou modifiés vers SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Update only the selected products in SellViaApp"
+msgstr "Mettre à jour uniquement les produits sélectionnés dans SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Only Sales managers can synchronise products with SellViaApp."
+msgstr "Seuls les responsables des ventes peuvent synchroniser les produits avec SellViaApp."
+
+#. module: sellviaapp_connector
+msgid "Synchronise contacts"
+msgstr "Synchroniser les contacts"
+
+#. module: sellviaapp_connector
+msgid "A SellViaApp contact synchronisation is already in progress. Please wait for it to finish."
+msgstr "Une synchronisation des contacts SellViaApp est déjà en cours. Attendez qu’elle soit terminée."
+
+#. module: sellviaapp_connector
+msgid "Send only new or changed contacts to SellViaApp"
+msgstr "Envoyer uniquement les contacts nouveaux ou modifiés vers SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Update only the selected contacts in SellViaApp"
+msgstr "Mettre à jour uniquement les contacts sélectionnés dans SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Only Sales managers can synchronise contacts with SellViaApp."
+msgstr "Seuls les responsables des ventes peuvent synchroniser les contacts avec SellViaApp."
+
+#. module: sellviaapp_connector
+msgid "Select at least one contact to update in SellViaApp."
+msgstr "Sélectionnez au moins un contact à mettre à jour dans SellViaApp."
+
+#. module: sellviaapp_connector
+msgid "The selected records do not contain an eligible contact."
+msgstr "Les enregistrements sélectionnés ne contiennent aucun contact admissible."
+
+#. module: sellviaapp_connector
+msgid "Only Sales managers can retrieve contacts from SellViaApp."
+msgstr "Seuls les responsables des ventes peuvent récupérer les contacts depuis SellViaApp."
+
+#. module: sellviaapp_connector
+msgid "SellViaApp did not return a result for this contact."
+msgstr "SellViaApp n’a renvoyé aucun résultat pour ce contact."
+
+#. module: sellviaapp_connector
+msgid "%s contact(s) synchronised; %s unchanged contact(s) skipped. %s invitation(s) sent, %s queued."
+msgstr "%s contact(s) synchronisé(s) ; %s contact(s) inchangé(s) ignoré(s). %s invitation(s) envoyée(s), %s en attente."
+
+#. module: sellviaapp_connector
+msgid "Update stock"
+msgstr "Mettre à jour le stock"
+
+#. module: sellviaapp_connector
+msgid "Update selected stock"
+msgstr "Mettre à jour le stock sélectionné"
+
+#. module: sellviaapp_connector
+msgid "Update selected products"
+msgstr "Mettre à jour les produits sélectionnés"
+
+#. module: sellviaapp_connector
+msgid "Last stock update"
+msgstr "Dernière mise à jour du stock"
+
+#. module: sellviaapp_connector
+msgid "Stock every 5 minutes; catalogue every 15 minutes"
+msgstr "Stock toutes les 5 minutes ; catalogue toutes les 15 minutes"
+
+#. module: sellviaapp_connector
+msgid "Publish the full catalogue when needed, and refresh changed stock quickly through a dedicated lightweight exchange."
+msgstr "Publiez le catalogue complet lorsque nécessaire et actualisez rapidement les stocks modifiés grâce à un échange léger dédié."
+
+#. module: sellviaapp_connector
+msgid "A SellViaApp product or stock synchronisation is already in progress. Please wait for it to finish."
+msgstr "Une synchronisation des produits ou du stock SellViaApp est déjà en cours. Attendez qu’elle soit terminée."
+
+#. module: sellviaapp_connector
+msgid "Select at least one product whose stock must be updated."
+msgstr "Sélectionnez au moins un produit dont le stock doit être mis à jour."
+
+#. module: sellviaapp_connector
+msgid "SellViaApp did not return a result for this stock update."
+msgstr "SellViaApp n’a renvoyé aucun résultat pour cette mise à jour de stock."
+
+#. module: sellviaapp_connector
+msgid "SellViaApp stock update"
+msgstr "Mise à jour du stock SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp stock is up to date"
+msgstr "Le stock SellViaApp est à jour"
+
+#. module: sellviaapp_connector
+msgid "%s selected stock level(s) updated."
+msgstr "%s niveau(x) de stock sélectionné(s) mis à jour."
+
+#. module: sellviaapp_connector
+msgid "%s stock level(s) updated; %s unchanged."
+msgstr "%s niveau(x) de stock mis à jour ; %s inchangé(s)."
+
+#. module: sellviaapp_connector
+msgid " %s product(s) were first published to SellViaApp."
+msgstr " %s produit(s) ont d’abord été publiés dans SellViaApp."
+
+#. module: sellviaapp_connector
+msgid " %s product(s) could not be updated because they are not published."
+msgstr " %s produit(s) n’ont pas pu être mis à jour car ils ne sont pas publiés."
+
+#. module: sellviaapp_connector
+msgid " %s unpublished product(s) will be handled by the catalogue synchronisation."
+msgstr " %s produit(s) non publié(s) seront traités par la synchronisation du catalogue."
+
+#. module: sellviaapp_connector
+msgid "Use this code to approve Odoo in the SellViaApp dashboard. Then return here and complete the connection."
+msgstr "Utilisez ce code pour autoriser Odoo dans la Dashboard SellViaApp. Revenez ensuite ici pour terminer la connexion."
+
+#. module: sellviaapp_connector
+msgid "Approve the connection in SellViaApp"
+msgstr "Autorisez la connexion dans SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Open the approval page, check the code and authorise this Odoo installation."
+msgstr "Ouvrez la page d’autorisation, vérifiez le code et autorisez cette installation Odoo."
+
+#. module: sellviaapp_connector
+msgid "Already approved? Finish the connection now"
+msgstr "Autorisation effectuée ? Terminez maintenant la connexion"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp no."
+msgstr "N° SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp delivery"
+msgstr "Livraison SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp payment"
+msgstr "Paiement SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "SellViaApp login"
+msgstr "Identifiant SellViaApp"
+
+#. module: sellviaapp_connector
+msgid "Send to"
+msgstr "Envoyer vers"
+
+#. module: sellviaapp_connector
+msgid "Click the button below to unlock catalogue, stock, customer and order synchronisation."
+msgstr "Cliquez sur le bouton ci-dessous pour activer la synchronisation du catalogue, du stock, des clients et des commandes."
+

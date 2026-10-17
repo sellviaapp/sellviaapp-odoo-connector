@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="sellviaapp_connector.ProductList.Buttons"
+       t-inherit="web.ListView.Buttons"
+       t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
+            <button t-if="!nbSelected"
+                    type="button"
+                    class="btn btn-primary o_sellviaapp_sync_all"
+                    title="Update only changed stock levels, in batches of 500"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncAllSellViaAppInventory">
+                <i class="fa fa-cubes me-1"/>
+                Update stock
+            </button>
+            <button t-if="!nbSelected"
+                    type="button"
+                    class="btn btn-secondary o_sellviaapp_sync_selected"
+                    title="Send only new or changed catalogue content to SellViaApp"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncAllSellViaAppProducts">
+                <i class="fa fa-cloud-upload me-1"/>
+                Synchronise catalogue
+            </button>
+            <button t-if="nbSelected"
+                    type="button"
+                    class="btn btn-primary o_sellviaapp_sync_selected_stock"
+                    title="Update stock only for the selected products"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncSelectedSellViaAppInventory">
+                <i class="fa fa-cubes me-1"/>
+                Update selected stock
+            </button>
+            <button t-if="nbSelected"
+                    type="button"
+                    class="btn btn-secondary o_sellviaapp_sync_selected"
+                    title="Update all catalogue information for the selected products"
+                    t-att-disabled="sellViaAppSync.busy"
+                    t-on-click="onSyncSelectedSellViaAppProducts">
+                <i class="fa fa-refresh me-1"/>
+                Update selected products
+            </button>
+        </xpath>
+    </t>
+</templates>

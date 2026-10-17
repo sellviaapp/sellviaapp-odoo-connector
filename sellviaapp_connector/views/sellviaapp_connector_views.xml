@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sellviaapp_connector_list" model="ir.ui.view">
+        <field name="name">sellviaapp.connector.list</field>
+        <field name="model">sellviaapp.connector</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'connected'" decoration-danger="state == 'error'" create="0" delete="0">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="supplier_name"/>
+                <field name="state" widget="badge"/>
+                <field name="auto_sync"/>
+                <field name="setup_progress" widget="progressbar" string="Setup"/>
+                <field name="last_sync_at"/>
+                <field name="last_inventory_sync_at"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_complete_oauth_and_reload" model="ir.actions.server">
+        <field name="name">Complete SellViaApp connection</field>
+        <field name="model_id" ref="model_sellviaapp_connector"/>
+        <field name="state">code</field>
+        <field name="code"><![CDATA[
+result = records.action_complete_oauth()
+if result:
+    params = result.get("params") or {}
+    params["next"] = {"type": "ir.actions.client", "tag": "reload"}
+    result["params"] = params
+action = result
+        ]]></field>
+    </record>
+
+    <record id="view_sellviaapp_connector_form" model="ir.ui.view">
+        <field name="name">sellviaapp.connector.form</field>
+        <field name="model">sellviaapp.connector</field>
+        <field name="arch" type="xml">
+            <form string="SellViaApp" create="0" delete="0" class="sva-connector-form">
+                <header>
+                    <button name="action_disconnect" type="object" string="Disconnect" confirm="This revokes the Odoo access token immediately. Continue?" invisible="state == 'disconnected'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="disconnected,authorizing,connected,error"/>
+                </header>
+                <sheet class="sva-connector-sheet">
+                    <field name="is_authenticated" invisible="1"/>
+                    <field name="singleton_key" invisible="1"/>
+
+                    <div class="oe_button_box" name="button_box" invisible="not is_authenticated">
+                        <button name="action_open_products" type="object" class="oe_stat_button" icon="fa-cubes">
+                            <field name="eligible_product_count" widget="statinfo" string="Saleable products"/>
+                        </button>
+                        <button name="action_open_customers" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="linked_customer_count" widget="statinfo" string="Linked customers"/>
+                        </button>
+                        <button name="action_open_orders" type="object" class="oe_stat_button" icon="fa-shopping-cart">
+                            <field name="imported_order_count" widget="statinfo" string="Imported orders"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title sva-connector-title" invisible="not is_authenticated">
+                        <div class="sva-connector-title__icon"><i class="fa fa-mobile" title="SellViaApp" aria-label="SellViaApp"/></div>
+                        <div>
+                            <span class="sva-eyebrow">Unique connection</span>
+                            <h1><field name="name" nolabel="1"/></h1>
+                            <p>Manage the complete exchange between this Odoo database and SellViaApp from one clear workspace.</p>
+                        </div>
+                    </div>
+
+                    <section class="sva-connect-hero" invisible="is_authenticated or state == 'authorizing'">
+                        <div class="sva-connect-hero__icon"><i class="fa fa-link" title="Connection" aria-hidden="true"/></div>
+                        <div class="sva-connect-hero__content">
+                            <span class="sva-eyebrow">Connection required</span>
+                            <h2>Connect Odoo to SellViaApp</h2>
+                            <p>Authorise this installation once. Until the connection is established, catalogue, customer and mobile-order synchronisation stays securely locked.</p>
+                            <div class="sva-connect-actions">
+                                <button name="action_start_oauth" type="object" string="Connect SellViaApp" class="oe_highlight" icon="fa-plug"/>
+                                <button name="action_open_sellviaapp_tutorial" type="object" string="Online tutorial" class="btn-secondary" icon="fa-graduation-cap"/>
+                            </div>
+                            <small>Your SellViaApp password is never stored in Odoo.</small>
+                        </div>
+                    </section>
+
+                    <section class="sva-connect-hero is-authorizing" invisible="state != 'authorizing'">
+                        <div class="sva-connect-hero__icon"><i class="fa fa-shield" title="Secure authorization" aria-hidden="true"/></div>
+                        <div class="sva-connect-hero__content">
+                            <span class="sva-eyebrow">Approval in progress</span>
+                            <h2>Approve this Odoo installation</h2>
+                            <p>Use this code to approve Odoo in the SellViaApp dashboard. Then return here and complete the connection.</p>
+                            <div class="sva-authorisation-code"><field name="user_code" nolabel="1" readonly="1"/></div>
+                            <div class="sva-approval-steps">
+                                <div class="sva-approval-step">
+                                    <span class="sva-approval-step__number">1</span>
+                                    <div class="sva-approval-step__content">
+                                        <strong>Approve the connection in SellViaApp</strong>
+                                        <small>Open the approval page, check the code and authorise this Odoo installation.</small>
+                                        <button name="action_open_authorization" type="object" string="Open approval page" class="btn-secondary" icon="fa-external-link"/>
+                                    </div>
+                                </div>
+                                <div class="sva-approval-step is-final">
+                                    <span class="sva-approval-step__number">2</span>
+                                    <div class="sva-approval-step__content">
+                                        <strong>Already approved? Finish the connection now</strong>
+                                        <small>Click the button below to unlock catalogue, stock, customer and order synchronisation.</small>
+                                        <button name="%(action_complete_oauth_and_reload)d" type="action" string="Complete connection" class="oe_highlight sva-complete-connection" icon="fa-check-circle"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sva-connect-actions is-tutorial">
+                                <button name="action_open_sellviaapp_tutorial" type="object" string="Online tutorial" class="btn-secondary" icon="fa-graduation-cap"/>
+                                <small>Read the complete step-by-step Odoo guide.</small>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="alert alert-danger" role="alert" invisible="not last_error">
+                        <field name="last_error" nolabel="1" readonly="1"/>
+                    </div>
+
+                    <div class="sva-connection-summary" invisible="not is_authenticated">
+                        <div class="sva-connection-summary__status"><i class="fa fa-check" title="Connected" aria-hidden="true"/></div>
+                        <div class="sva-connection-summary__identity">
+                            <span class="sva-eyebrow">Connection active</span>
+                            <strong><field name="supplier_name" nolabel="1" readonly="1"/></strong>
+                            <small>Products, customers and mobile orders are ready to synchronise.</small>
+                        </div>
+                        <div class="sva-connection-summary__progress">
+                            <span>Setup progress</span>
+                            <field name="setup_progress" widget="progressbar" nolabel="1" readonly="1"/>
+                        </div>
+                    </div>
+
+                    <div class="sva-workspace" invisible="not is_authenticated">
+                        <div class="sva-section-heading">
+                            <div>
+                                <span class="sva-eyebrow">Daily operations</span>
+                                <h2>What do you want to synchronise?</h2>
+                            </div>
+                            <small>Each operation can be launched independently.</small>
+                        </div>
+
+                        <div class="sva-card-grid">
+                            <section class="sva-operation-card is-catalogue">
+                                <div class="sva-operation-card__heading">
+                                    <span><i class="fa fa-cubes" title="Catalogue and stock" aria-hidden="true"/></span>
+                                    <div><small>1 · Catalogue</small><h3>Products and stock</h3></div>
+                                </div>
+                                <p>Publish the full catalogue when needed, and refresh changed stock quickly through a dedicated lightweight exchange.</p>
+                                <div class="sva-fact-grid">
+                                    <div><span>Saleable products</span><strong><field name="eligible_product_count" nolabel="1" readonly="1"/></strong></div>
+                                    <div><span>Last catalogue sync</span><strong><field name="last_sync_at" nolabel="1" readonly="1"/></strong></div>
+                                    <div class="is-wide"><span>Last stock update</span><strong><field name="last_inventory_sync_at" nolabel="1" readonly="1"/></strong></div>
+                                </div>
+                                <div class="sva-inline-setting">
+                                    <div><strong>Automatic synchronisation</strong><small>Stock every 5 minutes; catalogue every 15 minutes</small></div>
+                                    <field name="auto_sync" nolabel="1"/>
+                                </div>
+                                <div class="sva-inline-setting is-select">
+                                    <div><strong>Stock mode</strong><small>Choose the quantity published to SellViaApp</small></div>
+                                    <field name="stock_mode" nolabel="1"/>
+                                </div>
+                                <div class="sva-card-actions">
+                                    <button name="action_sync_inventory_all" type="object" string="Update stock" class="oe_highlight" icon="fa-cubes"/>
+                                    <button name="action_sync_all" type="object" string="Synchronise catalogue" class="btn-secondary" icon="fa-cloud-upload"/>
+                                </div>
+                            </section>
+
+                            <section class="sva-operation-card is-customers">
+                                <div class="sva-operation-card__heading">
+                                    <span><i class="fa fa-users" title="Customer access" aria-hidden="true"/></span>
+                                    <div><small>2 · Customers</small><h3>Mobile customer access</h3></div>
+                                </div>
+                                <p>Send Odoo customers to the mobile app or retrieve SellViaApp customers without creating duplicates.</p>
+                                <div class="sva-fact-grid">
+                                    <div><span>Eligible Odoo customers</span><strong><field name="eligible_customer_count" nolabel="1" readonly="1"/></strong></div>
+                                    <div><span>Linked customers</span><strong><field name="linked_customer_count" nolabel="1" readonly="1"/></strong></div>
+                                    <div class="is-wide"><span>Last customer exchange</span><strong><field name="last_customer_sync_at" nolabel="1" readonly="1"/></strong></div>
+                                </div>
+                                <div class="sva-card-actions">
+                                    <button name="action_sync_customers" type="object" string="Send Odoo customers" class="oe_highlight" icon="fa-upload"/>
+                                    <button name="action_import_customers" type="object" string="Retrieve SellViaApp customers" class="btn-secondary" icon="fa-download"/>
+                                </div>
+                            </section>
+
+                            <section class="sva-operation-card is-orders">
+                                <div class="sva-operation-card__heading">
+                                    <span><i class="fa fa-shopping-cart" title="Mobile orders" aria-hidden="true"/></span>
+                                    <div><small>3 · Orders</small><h3>Mobile orders</h3></div>
+                                </div>
+                                <p>Create Odoo quotations from confirmed mobile orders. Existing orders are never duplicated.</p>
+                                <div class="sva-fact-grid">
+                                    <div><span>Imported orders</span><strong><field name="imported_order_count" nolabel="1" readonly="1"/></strong></div>
+                                    <div><span>Last order import</span><strong><field name="last_order_import_at" nolabel="1" readonly="1"/></strong></div>
+                                </div>
+                                <div class="sva-card-actions">
+                                    <button name="action_import_orders" type="object" string="Retrieve SellViaApp orders" class="oe_highlight" icon="fa-download"/>
+                                </div>
+                            </section>
+                        </div>
+
+                        <section class="sva-support-card">
+                            <div class="sva-support-card__icon"><i class="fa fa-life-ring" title="Technical support" aria-hidden="true"/></div>
+                            <div class="sva-support-card__content">
+                                <span class="sva-eyebrow">Direct assistance</span>
+                                <h3>Need technical support?</h3>
+                                <p>Open your SellViaApp support area without signing in again. The secure access link expires after two minutes and can be used only once.</p>
+                            </div>
+                            <button name="action_open_sellviaapp_support" type="object" string="Open secure support" class="oe_highlight sva-support-card__button" icon="fa-comments"/>
+                        </section>
+
+                        <div class="sva-help-bar">
+                            <div><i class="fa fa-tachometer" title="Dashboard and connection" aria-hidden="true"/><span><strong>Dashboard and connection</strong><small>Manage the mobile store or verify the connection.</small></span></div>
+                            <div class="sva-button-row">
+                                <button name="action_open_sellviaapp_tutorial" type="object" string="Open online tutorial" class="btn-secondary" icon="fa-graduation-cap"/>
+                                <button name="action_open_sellviaapp_dashboard" type="object" string="Open SellViaApp dashboard" class="btn-secondary" icon="fa-external-link"/>
+                                <button name="action_test_connection" type="object" string="Check connection" class="btn-secondary" icon="fa-check-circle"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <notebook class="sva-details-notebook" invisible="not is_authenticated">
+                        <page string="Activity details" invisible="not is_authenticated">
+                            <group>
+                                <group>
+                                    <field name="last_sync_at" readonly="1"/>
+                                    <field name="last_inventory_sync_at" readonly="1"/>
+                                    <field name="last_customer_sync_at" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="last_customer_import_at" readonly="1"/>
+                                    <field name="last_order_import_at" readonly="1"/>
+                                </group>
+                            </group>
+                            <group string="Technical summaries" groups="base.group_system">
+                                <field name="last_sync_summary" readonly="1"/>
+                                <field name="last_inventory_sync_summary" readonly="1"/>
+                                <field name="last_customer_sync_summary" readonly="1"/>
+                                <field name="last_customer_import_summary" readonly="1"/>
+                                <field name="last_order_import_summary" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Linked records" invisible="not is_authenticated">
+                            <field name="binding_ids" readonly="1">
+                                <tree decoration-muted="state == 'archived'" decoration-danger="state == 'error'">
+                                    <field name="model_name"/>
+                                    <field name="res_id"/>
+                                    <field name="external_id"/>
+                                    <field name="remote_type"/>
+                                    <field name="state" widget="badge"/>
+                                    <field name="last_synced_at"/>
+                                    <field name="inventory_synced_at"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Logs" invisible="not is_authenticated">
+                            <field name="log_ids" readonly="1">
+                                <tree decoration-success="level == 'success'" decoration-warning="level == 'warning'" decoration-danger="level == 'error'">
+                                    <field name="create_date"/>
+                                    <field name="operation"/>
+                                    <field name="level" widget="badge"/>
+                                    <field name="message"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Advanced settings" groups="base.group_system" invisible="not is_authenticated">
+                            <group>
+                                <group string="Connection">
+                                    <field name="company_id" readonly="state != 'disconnected'" options="{'no_create': True}"/>
+                                    <field name="api_url" readonly="state != 'disconnected'"/>
+                                    <field name="public_base_url" placeholder="https://odoo.example.com"/>
+                                    <field name="verify_ssl"/>
+                                    <field name="installation_id" readonly="1"/>
+                                </group>
+                                <group string="SellViaApp account">
+                                    <field name="supplier_name" readonly="1"/>
+                                    <field name="supplier_suffix" readonly="1"/>
+                                    <field name="supplier_currency" readonly="1"/>
+                                    <field name="token_expires_at" readonly="1"/>
+                                    <field name="access_token" password="True" readonly="1"/>
+                                    <field name="api_key" password="True" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sellviaapp_connector" model="ir.actions.act_window">
+        <field name="name">SellViaApp</field>
+        <field name="res_model">sellviaapp.connector</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_sellviaapp_connector_form"/>
+        <field name="context">{'form_view_initial_mode': 'edit'}</field>
+    </record>
+
+    <record id="action_sellviaapp_connector_home" model="ir.actions.server">
+        <field name="name">SellViaApp</field>
+        <field name="model_id" ref="model_sellviaapp_connector"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_singleton()</field>
+    </record>
+
+    <function model="sellviaapp.connector" name="_configure_legacy_action"/>
+
+    <menuitem id="menu_sellviaapp_root" name="SellViaApp" action="action_sellviaapp_connector_home" sequence="65" groups="base.group_system"/>
+    <record id="menu_sellviaapp_connector" model="ir.ui.menu">
+        <field name="name">Connection &amp; synchronisation</field>
+        <field name="parent_id" ref="menu_sellviaapp_root"/>
+        <field name="action" ref="action_sellviaapp_connector_home"/>
+        <field name="sequence">10</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+        <field name="active" eval="False"/>
+    </record>
+</odoo>

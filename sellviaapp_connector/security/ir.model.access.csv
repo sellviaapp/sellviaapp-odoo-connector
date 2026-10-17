@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sellviaapp_connector_system,SellViaApp connector system,model_sellviaapp_connector,base.group_system,1,1,1,1
+access_sellviaapp_binding_system,SellViaApp binding system,model_sellviaapp_binding,base.group_system,1,1,1,1
+access_sellviaapp_sync_log_system,SellViaApp sync log system,model_sellviaapp_sync_log,base.group_system,1,0,0,1

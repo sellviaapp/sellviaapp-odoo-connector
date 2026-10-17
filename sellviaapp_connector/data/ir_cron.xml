@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="ir_cron_sellviaapp_catalogue_sync" model="ir.cron">
+        <field name="name">SellViaApp: catalogue synchronisation</field>
+        <field name="model_id" ref="model_sellviaapp_connector"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_sync()</field>
+        <field name="interval_number">15</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">True</field>
+    </record>
+    <record id="ir_cron_sellviaapp_inventory_sync" model="ir.cron">
+        <field name="name">SellViaApp: fast stock synchronisation</field>
+        <field name="model_id" ref="model_sellviaapp_connector"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_sync_inventory()</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+        <field name="active">True</field>
+    </record>
+    <record id="ir_cron_sellviaapp_log_cleanup" model="ir.cron">
+        <field name="name">SellViaApp: clean old synchronisation logs</field>
+        <field name="model_id" ref="model_sellviaapp_connector"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_cleanup_logs()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

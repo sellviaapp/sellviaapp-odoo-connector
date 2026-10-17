@@ -1,0 +1,37 @@
+{
+    "name": "SellViaApp Connector",
+    "summary": "Synchronise Odoo products, stock, customers and mobile orders",
+    "version": "17.0.1.10.0",
+    "category": "Sales/Point of Sale",
+    "author": "SellViaApp",
+    "maintainer": "SellViaApp",
+    "website": "https://sellviaapp.com",
+    "support": "info@sellviaapp.com",
+    "license": "LGPL-3",
+    "depends": ["base", "product", "stock", "sale_management"],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/ir_cron.xml",
+        "views/sellviaapp_connector_views.xml",
+        "views/product_views.xml",
+        "views/res_partner_views.xml",
+        "views/sale_order_views.xml",
+    ],
+    "external_dependencies": {"python": ["requests"]},
+    "assets": {
+        "web.assets_backend": [
+            "sellviaapp_connector/static/src/scss/connector.scss",
+        ],
+    },
+    "post_init_hook": "post_init_hook",
+    "images": [
+        "static/description/images/main_screenshot.png",
+        "static/description/images/01_odoo_workspace.png",
+        "static/description/images/02_catalogue_stock.png",
+        "static/description/images/03_customers_orders.png",
+        "static/description/images/04_private_catalogue_api.png",
+    ],
+    "application": True,
+    "auto_install": False,
+    "installable": True,
+}
